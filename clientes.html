@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <meta charset="UTF-8" />
+    <title>Bom som</title>
+
+</head>
+
+<body>
+    <style>
+        th {
+            color: #fff;
+        }
+    </style>
+
+
+    <table class="table table-striped">
+        <tr class="bg-info">
+            <th>id</th>
+            <th>name</th>
+            <th>phone</th>
+            <th>style_music</th>
+            <th>email</th>
+        </tr>
+
+        <tbody id="myTable">
+
+        </tbody>
+    </table>
+
+    <script>
+        var myArray = [{
+            'id': '1234567855',
+            'name': 'Michael',
+            'address': 'av boa viagem',
+            'phone': '81999415188',
+            'style_music': 'funk',
+            'email': 'viniciusalmeidarodrigues96@gmail.com'
+        }, ]
+
+        let arrayClients = window.localStorage.getItem('clients')
+        var arrayParse = JSON.parse(arrayClients)
+        for (let i = 0; i < arrayParse.length; i++) {
+            buildTable(arrayParse[i])
+        }
+
+
+        // buildTable(myArray)
+
+
+
+        function buildTable(data) {
+            console.log(data)
+            console.log(data.email)
+            var table = document.getElementById('myTable')
+
+
+            var row = `<tr>
+                <td>${data.id}</td>
+                  <td>${data.name}</td>
+                
+                  <td>${data.phone}</td>
+                  <td>${data.style_music}</td>
+                  <td>${data.email}</td>
+                </tr>`
+
+            table.innerHTML += row
+
+
+
+        }
+    </script>
+    <script src="js/ajax/getClients.js"></script>
+</body>
+
+</html>

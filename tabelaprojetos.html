@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<meta charset="UTF-8" />
+<title>Bom som</title>
+
+</head>
+<body>
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
+
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+            <th>name</th>
+            <th>description</th>
+            <th>place</th>
+            <th>project_date</th>
+    </tr>
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+
+<script>
+        
+     
+        let arrayProjects = window.localStorage.getItem('projects')
+        var arrayParse = JSON.parse(arrayProjects)
+        for (let i = 0; i < arrayParse.length; i++) {
+            buildTable(arrayParse[i])
+        }
+	
+	
+
+
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		
+			var row = `<tr>
+                  <td>${data.name}</td>
+                  <td>${data.description}</td>
+                  <td>${data.place}</td>
+                  <td>${data.project_date}</td>
+                </tr>`
+					  
+			table.innerHTML += row
+
+
+		}
+	
+
+</script>
+</body>
+
+</html>
